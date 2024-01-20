@@ -44,6 +44,7 @@ namespace OpenAI
         private static string _userInputTranscriptionText = "Hello";
 
         private static bool checkDoneSpeaking = false;
+        private static bool interviewStarted = false;
         private bool checkUserDoneSpeaking = false;
         private bool stop = false;
         private string end = null;
@@ -55,73 +56,79 @@ namespace OpenAI
             
             //recordIndicator.GetComponent<Button>().onClick.Invoke();
             m_MyEvent.AddListener(SendReply);
-            m_MyEvent.Invoke();
         }
-
+        public void StartInterview()
+        {
+            m_MyEvent.Invoke();
+            interviewStarted = true;
+            Interviewer.SetTalking(true);
+        }
         private float timer = 0;
 
-        void Update()
+        // This is the main interview loop
+        void Update() 
         {
-           
-            // If its checking to see if done speaking, then when its done speaking allow user to talk
-            timer += Time.deltaTime;
-            if (timer > 0.1)
+            if(interviewStarted)
             {
-                timer-=0.1f;
-                if (textToSpeech.Speaking())
+                // If its checking to see if done speaking, then when its done speaking allow user to talk
+                timer += Time.deltaTime;
+                if (timer > 0.1)
                 {
-                    Interviewer.SetTalking(true);
-                }
-                else
-                {
-                    Interviewer.SetTalking(false);
-                }
-            }
-            if (stop)
-            {
-                userInputTranscriptionText.text = "Interview Report:\n";
-                
-                if (end == null)
-                {
-                    end = "Charisma: " + (30 + (int)(Mathf.Round(60 * UnityEngine.Random.value))).ToString() + "\nProfessionalism: " + (30 + (int)(Mathf.Round(60 * UnityEngine.Random.value))).ToString() + "\nProficiency: " + (30 + (int)(Mathf.Round(60 * UnityEngine.Random.value))).ToString(); 
-                }
-
-                userInputTranscriptionText.text += end;
-            }
-            else
-            {
-                if(checkDoneSpeaking && !textToSpeech.Speaking())
-                {
-                    checkDoneSpeaking = false;
-                    userInputTranscriptionText.text = "Speak to enter text...";
-                    //recordIndicator.SetActive(true);
-                
-                    // This activates the User Mic to start speaking
-                    //activation.ToggleActivation();
-                    checkUserDoneSpeaking = true;
-                    if(first) 
+                    timer -= 0.1f;
+                    if (textToSpeech.Speaking())
                     {
-                        first = false;
                         Interviewer.SetTalking(true);
-                        checkDoneSpeaking = true;
                     }
                     else
                     {
                         Interviewer.SetTalking(false);
                     }
                 }
-                if (DictationActivation.ReadyToSend())
+                if (stop)
                 {
-                    Interviewer.SetTalking(false);
-                    checkDoneSpeaking = true;
-                    DictationActivation.ResetReady(); 
-                    _userInputTranscriptionText = userInputTranscriptionText.text;
-                    m_MyEvent.Invoke();
-                    userInputTranscriptionText.text = "Speak to enter text...";
-                    Interviewer.SetTalking(true);
+                    userInputTranscriptionText.text = "Interview Report:\n";
+
+                    if (end == null)
+                    {
+                        end = "Charisma: " + (30 + (int)(Mathf.Round(60 * UnityEngine.Random.value))).ToString() + "\nProfessionalism: " + (30 + (int)(Mathf.Round(60 * UnityEngine.Random.value))).ToString() + "\nProficiency: " + (30 + (int)(Mathf.Round(60 * UnityEngine.Random.value))).ToString();
+                    }
+
+                    userInputTranscriptionText.text += end;
+                }
+                else
+                {
+                    if (checkDoneSpeaking && !textToSpeech.Speaking())
+                    {
+                        checkDoneSpeaking = false;
+                        userInputTranscriptionText.text = "Speak to enter text...";
+                        //recordIndicator.SetActive(true);
+
+                        // This activates the User Mic to start speaking
+                        //activation.ToggleActivation();
+                        checkUserDoneSpeaking = true;
+                        if (first)
+                        {
+                            first = false;
+                            Interviewer.SetTalking(true);
+                            checkDoneSpeaking = true;
+                        }
+                        else
+                        {
+                            Interviewer.SetTalking(false);
+                        }
+                    }
+                    if (DictationActivation.ReadyToSend())
+                    {
+                        Interviewer.SetTalking(false);
+                        checkDoneSpeaking = true;
+                        DictationActivation.ResetReady();
+                        _userInputTranscriptionText = userInputTranscriptionText.text;
+                        m_MyEvent.Invoke();
+                        userInputTranscriptionText.text = "Speak to enter text...";
+                        Interviewer.SetTalking(true);
+                    }
                 }
             }
-
         }
         public void ResponseAfterUserInput()
         {
