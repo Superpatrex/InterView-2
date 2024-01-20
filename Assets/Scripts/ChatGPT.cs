@@ -152,7 +152,7 @@ namespace OpenAI
                 Model = ModelName,
                 Messages = this._msg,
                 MaxTokens = 250,
-                Temperature = 1.5f,
+                Temperature = 1f
             });
 
             if (completionResponse.Choices != null && completionResponse.Choices.Count > 0)
