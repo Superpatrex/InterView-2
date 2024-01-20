@@ -18,10 +18,11 @@ namespace OpenAI
 {
     public class ChatGPT : MonoBehaviour
     {
-        [SerializeField] public TMP_Text textBox;
-        [SerializeField] public TMP_Text userInput;
+        [SerializeField] public TMP_Text interviewerDialogueBoxText;
+        [SerializeField] public TMP_Text userInputTranscriptionText;
         [SerializeField] public TextToSpeech textToSpeech;
-        [SerializeField] public GameObject activateDictateObject;
+        private String ModelName = "gpt-4-1106-preview";
+
         //[SerializeField] Meta.Voice.Samples.Dictation.DictationActivation activation;
         //[SerializeField] Oculus.Voice.Dictation.AppDictationExperience experience;
 
@@ -40,7 +41,7 @@ namespace OpenAI
         public static string professionalism;
         public static string proficiency;
         
-        private static string _userInput = "Hello";
+        private static string _userInputTranscriptionText = "Hello";
 
         private static bool checkDoneSpeaking = false;
         private bool checkUserDoneSpeaking = false;
@@ -61,9 +62,7 @@ namespace OpenAI
 
         void Update()
         {
-            // activation = activateDictateObject.GetComponent<Meta.Voice.Samples.Dictation.DictationActivation>();
-            // experience = activateDictateObject.GetComponent<Oculus.Voice.Dictation.AppDictationExperience>();
-            
+           
             // If its checking to see if done speaking, then when its done speaking allow user to talk
             timer += Time.deltaTime;
             if (timer > 0.1)
@@ -80,21 +79,21 @@ namespace OpenAI
             }
             if (stop)
             {
-                userInput.text = "Interview Report:\n";
+                userInputTranscriptionText.text = "Interview Report:\n";
                 
                 if (end == null)
                 {
                     end = "Charisma: " + (30 + (int)(Mathf.Round(60 * UnityEngine.Random.value))).ToString() + "\nProfessionalism: " + (30 + (int)(Mathf.Round(60 * UnityEngine.Random.value))).ToString() + "\nProficiency: " + (30 + (int)(Mathf.Round(60 * UnityEngine.Random.value))).ToString(); 
                 }
 
-                userInput.text += end;
+                userInputTranscriptionText.text += end;
             }
             else
             {
                 if(checkDoneSpeaking && !textToSpeech.Speaking())
                 {
                     checkDoneSpeaking = false;
-                    userInput.text = "Speak to enter text...";
+                    userInputTranscriptionText.text = "Speak to enter text...";
                     //recordIndicator.SetActive(true);
                 
                     // This activates the User Mic to start speaking
@@ -116,9 +115,9 @@ namespace OpenAI
                     Interviewer.SetTalking(false);
                     checkDoneSpeaking = true;
                     DictationActivation.ResetReady(); 
-                    _userInput = userInput.text;
+                    _userInputTranscriptionText = userInputTranscriptionText.text;
                     m_MyEvent.Invoke();
-                    userInput.text = "Speak to enter text...";
+                    userInputTranscriptionText.text = "Speak to enter text...";
                     Interviewer.SetTalking(true);
                 }
             }
@@ -126,9 +125,9 @@ namespace OpenAI
         }
         public void ResponseAfterUserInput()
         {
-            _userInput = userInput.text;
+            _userInputTranscriptionText = userInputTranscriptionText.text;
             m_MyEvent.Invoke();
-            userInput.text = "Enter text...";
+            userInputTranscriptionText.text = "Enter text...";
         }
         
         private async void SendReply()
@@ -144,13 +143,13 @@ namespace OpenAI
             newMessage = new ChatMessage()
             {
                 Role = "user",
-                Content = _userInput
+                Content = _userInputTranscriptionText
             };
 
             this._msg.Add(newMessage);
             var completionResponse = await this._openAi.CreateChatCompletion(new CreateChatCompletionRequest()
             {
-                Model = "gpt-3.5-turbo",
+                Model = ModelName,
                 Messages = this._msg,
                 MaxTokens = 250,
                 Temperature = 1.5f,
@@ -160,8 +159,8 @@ namespace OpenAI
             {
                 var message = completionResponse.Choices[0].Message;
                 message.Content = message.Content.Trim();
-                
-                textBox.text = message.Content;
+
+                interviewerDialogueBoxText.text = message.Content;
                 this._msg.Add(message);
                 textToSpeech.Speak();
                 checkDoneSpeaking = true;
@@ -173,16 +172,16 @@ namespace OpenAI
             }
             else
             {
-               textBox.text = "No text was generated from this prompt.\n";
+                interviewerDialogueBoxText.text = "No text was generated from this prompt.\n";
 
                if (completionResponse.Error != null)
                {
-                    textBox.text += "\n" + completionResponse.Error.Message;
+                    interviewerDialogueBoxText.text += "\n" + completionResponse.Error.Message;
                }
 
                if (completionResponse.Warning != null)
                {
-                    textBox.text += "\n" + completionResponse.Warning;
+                    interviewerDialogueBoxText.text += "\n" + completionResponse.Warning;
                }
             }
 
@@ -222,7 +221,7 @@ namespace OpenAI
 
             var completionResponse = await this._openAi.CreateChatCompletion(new CreateChatCompletionRequest()
             {
-                Model = "gpt-3.5-turbo",
+                Model = ModelName,
                 Messages = professionalismMessages,
                 MaxTokens = 250,
                 Temperature = 1.5f,
@@ -262,7 +261,7 @@ namespace OpenAI
 
             var completionResponse = await this._openAi.CreateChatCompletion(new CreateChatCompletionRequest()
             {
-                Model = "gpt-3.5-turbo",
+                Model = ModelName,
                 Messages = charismaMessages,
                 MaxTokens = 250,
                 Temperature = 1.5f,
@@ -302,7 +301,7 @@ namespace OpenAI
 
             var completionResponse = await this._openAi.CreateChatCompletion(new CreateChatCompletionRequest()
             {
-                Model = "gpt-3.5-turbo",
+                Model = ModelName,
                 Messages = proficiencyMessages,
                 MaxTokens = 250,
                 Temperature = 1.5f,
