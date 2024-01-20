@@ -66,7 +66,6 @@ public class Interviewer : MonoBehaviour
         head_default_position = head_object.transform.position;
 
         SetTalking(true);
-                UnityEngine.Debug.Log("aasdasdassd");
     }
 
     float eyetime = 0;
