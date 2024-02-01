@@ -21,7 +21,7 @@ namespace OpenAI
         [SerializeField] public TMP_Text interviewerDialogueBoxText;
         [SerializeField] public TMP_Text userInputTranscriptionText;
         [SerializeField] public TextToSpeech textToSpeech;
-        private String ModelName = "gpt-4-1106-preview";
+        private String ModelName = "gpt-3.5-turbo-1106";
 
         //[SerializeField] Meta.Voice.Samples.Dictation.DictationActivation activation;
         //[SerializeField] Oculus.Voice.Dictation.AppDictationExperience experience;
