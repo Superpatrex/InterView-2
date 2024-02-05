@@ -11,7 +11,7 @@ public class StartInterview : MonoBehaviour
     {
         chatGPT = transform.GetComponent<ChatGPT>();
     }
-    // Start is called before the first frame update
+ 
     public void BeginInterview()
     {
         chatGPT.StartInterview();
