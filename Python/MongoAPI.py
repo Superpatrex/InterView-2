@@ -3,7 +3,8 @@ import random
 import leetcodeAPI
 
 DEBUG = True
-connection_string = "mongodb+srv://root:root@interview-frontend.0nwuz0e.mongodb.net/"
+# Set the connection string when using
+connection_string = ""
 client = MongoClient(connection_string)
 
 
