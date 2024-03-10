@@ -27,7 +27,7 @@ public class Chair : MonoBehaviour
     }
 
     // when the player sits down
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {   
         Debug.Log("trying to sit!");
         Debug.Log(isSeated.ToString()+" "+isCooldown);
@@ -53,6 +53,8 @@ public class Chair : MonoBehaviour
 
         // Wait for lockTime to pass
         yield return new WaitForSeconds(lockTime);
+        // Enable player movement again
+        moveInputAction.action.Enable();
         while (isSeated) {
             Debug.Log(lastMoveInput.magnitude);
             if (lastMoveInput.magnitude > 0.2f) { // Threshold, adjust as needed
@@ -65,8 +67,6 @@ public class Chair : MonoBehaviour
             }
             yield return null; // Wait until next frame and check again
         }
-        // Enable player movement again
-        moveInputAction.action.Enable();
     }
     private void TeleportPlayer(Transform playerTransform)
     {
@@ -74,7 +74,7 @@ public class Chair : MonoBehaviour
         Debug.Log(direction);
         direction = Quaternion.Euler(0, playerTransform.eulerAngles.y, 0) * direction;
         direction.Normalize();
-        playerTransform.position += direction * 0.5f;
+        playerTransform.position += direction * 0.25f;
     }
     private IEnumerator SittingCooldown()
     {
