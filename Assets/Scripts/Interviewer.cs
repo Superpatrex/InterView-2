@@ -65,8 +65,7 @@ public class Interviewer : MonoBehaviour
         mouth.GetComponent<UnityEngine.UI.Image>().sprite = happy_mouth;
         head_default_position = head_object.transform.position;
 
-        SetTalking(true);
-                UnityEngine.Debug.Log("aasdasdassd");
+        SetTalking(false);
     }
 
     float eyetime = 0;
