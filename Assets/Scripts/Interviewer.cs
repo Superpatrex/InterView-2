@@ -36,8 +36,8 @@ public class Interviewer : MonoBehaviour
     public Sprite angry_mouth;
     public Sprite default_mouth;
 
-    public GameObject head_object;
-    private Vector3 head_default_position;
+    public GameObject body_object;
+    public GameObject interviwer_pos;
 
     private static Interviewer me;
 
@@ -63,7 +63,6 @@ public class Interviewer : MonoBehaviour
         eyes.GetComponent<UnityEngine.UI.Image>().sprite = happy_eyes;
         current_mouth = happy_mouth;
         mouth.GetComponent<UnityEngine.UI.Image>().sprite = happy_mouth;
-        head_default_position = head_object.transform.position;
 
         SetTalking(false);
     }
@@ -100,7 +99,7 @@ public class Interviewer : MonoBehaviour
         }
 
         movetime += Time.deltaTime/2.5f;
-        head_object.transform.position = head_default_position + new Vector3(Mathf.PerlinNoise(20, movetime) - 0.5f, (Mathf.PerlinNoise(40, movetime) - 0.5f) * 0.4f, Mathf.PerlinNoise(60, movetime) - 0.5f) * 0.075f;
+        body_object.transform.position = interviwer_pos.transform.position + new Vector3(Mathf.PerlinNoise(20, movetime) - 0.5f, (Mathf.PerlinNoise(40, movetime) - 0.5f) * 0.4f, Mathf.PerlinNoise(60, movetime) - 0.5f) * 0.075f;
     }
 
     private bool blinking = false;
