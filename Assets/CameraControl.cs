@@ -119,14 +119,14 @@ public class CameraControl : MonoBehaviour
             TeacherGUI.transform.position = new Vector3(100, 0, 0);
     }
 
-    public static void GoBack()
+    public void GoBack()
     {
         ThisInstance.CurrentCamera.enabled = false;
         ThisInstance.CurrentCamera = ThisInstance.LastCamera;
         ThisInstance.CurrentCamera.enabled = true;
     }
 
-    public static void GoToMenu()
+    public void GoToMenu()
     {
         ThisInstance.LastCamera = ThisInstance.CurrentCamera;
         ThisInstance.CurrentCamera.enabled = false;

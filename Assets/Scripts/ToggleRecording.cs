@@ -1,5 +1,6 @@
 using Meta.Voice.Samples.Dictation;
 using Meta.WitAi.Dictation;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,6 +17,7 @@ public class ToggleRecording : MonoBehaviour
 
     public void ToggleRecord()
     {
+        print("Toggle record");
         if(clearOnNextToggle)
         {
             transcriptionHandler.Clear();
@@ -23,7 +25,7 @@ public class ToggleRecording : MonoBehaviour
         }
         
         dictationActivation.ToggleActivation();
-        if(DictationActivation.ReadyToSend())
+        if(dictationActivation.ReadyToSend())
         {
             clearOnNextToggle = true;
         }

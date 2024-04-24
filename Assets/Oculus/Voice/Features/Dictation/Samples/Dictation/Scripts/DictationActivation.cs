@@ -7,6 +7,7 @@
  */
 
 using Meta.WitAi.Dictation;
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -21,7 +22,7 @@ namespace Meta.Voice.Samples.Dictation
         
 
         private bool first = true;
-        private static bool messageReady = false;
+        private bool messageReady = false;
         private bool isActive;
         public void ToggleActivation()
         {
@@ -30,7 +31,7 @@ namespace Meta.Voice.Samples.Dictation
             //    first = false;
             //    return;
             //}
-
+            print("Toggle Activation");
             if (_dictation.MicActive )
             {
                 _dictation.Deactivate();
@@ -45,12 +46,12 @@ namespace Meta.Voice.Samples.Dictation
             }
         }
 
-        public static bool ReadyToSend()
+        public bool ReadyToSend()
         {
             return messageReady;
         }
 
-        public static void ResetReady()
+        public void ResetReady()
         {
             messageReady = false;
         }

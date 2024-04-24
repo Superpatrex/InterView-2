@@ -21,7 +21,7 @@ namespace Meta.WitAi.Dictation
         private WitTranscriptionEvent onTranscriptionUpdated = new
             WitTranscriptionEvent();
 
-        private static StringBuilder _text;
+        private StringBuilder _text;
         private string _activeText;
         private int _startIndex;    
 

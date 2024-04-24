@@ -39,7 +39,7 @@ public class Interviewer : MonoBehaviour
     public GameObject body_object;
     public GameObject interviwer_pos;
 
-    private static Interviewer me;
+    private Interviewer me;
 
     Interviewer()
     {
@@ -137,7 +137,7 @@ public class Interviewer : MonoBehaviour
     private bool talking = false;
     private Sprite current_mouth;
 
-    public static void SetTalking(bool am_i_gonna_talk_or_no)
+    public void SetTalking(bool am_i_gonna_talk_or_no)
     {
         if (me.talking != am_i_gonna_talk_or_no)
         {

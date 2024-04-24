@@ -29,8 +29,7 @@ public class Chair : MonoBehaviour
     // when the player sits down
     private void OnTriggerStay(Collider other)
     {   
-        Debug.Log("trying to sit!");
-        Debug.Log(isSeated.ToString()+" "+isCooldown);
+        //Debug.Log(isSeated.ToString()+" "+isCooldown);
         if(isSeated || isCooldown) return;
         lastMoveInput = Vector2.zero;
         isSeated = true;
@@ -56,7 +55,7 @@ public class Chair : MonoBehaviour
         // Enable player movement again
         moveInputAction.action.Enable();
         while (isSeated) {
-            Debug.Log(lastMoveInput.magnitude);
+            //Debug.Log(lastMoveInput.magnitude);
             if (lastMoveInput.magnitude > 0.2f) { // Threshold, adjust as needed
                 TeleportPlayer(playerTransform);
                 // Break the loop and end the coroutine
