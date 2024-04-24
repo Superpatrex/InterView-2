@@ -6947,6 +6947,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 793193605}
   m_CullTransparentMesh: 0
+--- !u!1 &801333127 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1114589328801863655, guid: a5f0f739d46040b4fbf4c579841d698e, type: 3}
+  m_PrefabInstance: {fileID: 5122600306599328901}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &802532919
 GameObject:
   m_ObjectHideFlags: 0
@@ -14297,7 +14302,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6254919540151357624, guid: 9612f5cad5fb748408893a47cbdcbe26, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 40
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6254919540151357624, guid: 9612f5cad5fb748408893a47cbdcbe26, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -14325,7 +14330,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6254919540300974736, guid: 9612f5cad5fb748408893a47cbdcbe26, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 40
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6254919540300974736, guid: 9612f5cad5fb748408893a47cbdcbe26, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -14361,7 +14366,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6254919540697728793, guid: 9612f5cad5fb748408893a47cbdcbe26, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 44.7
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6254919540697728793, guid: 9612f5cad5fb748408893a47cbdcbe26, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -14401,7 +14406,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6254919540955873006, guid: 9612f5cad5fb748408893a47cbdcbe26, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 40
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6254919540955873006, guid: 9612f5cad5fb748408893a47cbdcbe26, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -14437,7 +14442,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6254919541428991024, guid: 9612f5cad5fb748408893a47cbdcbe26, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 44.7
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6254919541428991024, guid: 9612f5cad5fb748408893a47cbdcbe26, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -14465,7 +14470,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6254919541981658233, guid: 9612f5cad5fb748408893a47cbdcbe26, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 40
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6254919541981658233, guid: 9612f5cad5fb748408893a47cbdcbe26, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -16656,6 +16661,17 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1530037644}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1533532620 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3581871979747594557, guid: a5f0f739d46040b4fbf4c579841d698e, type: 3}
+  m_PrefabInstance: {fileID: 5122600306599328901}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82e0965081de3414eba965b40a1d12de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1562968819
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20226,6 +20242,7 @@ MonoBehaviour:
   doorOpen: DoorOpen
   doorClose: DoorClose
   ChangeDoorState: 0
+  IsLocked: 0
 --- !u!136 &1840606315
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -24435,9 +24452,17 @@ PrefabInstance:
       value: InterviewRoom
       objectReference: {fileID: 0}
     - target: {fileID: 2350830215412492654, guid: a5f0f739d46040b4fbf4c579841d698e, type: 3}
+      propertyPath: door
+      value: 
+      objectReference: {fileID: 1533532620}
+    - target: {fileID: 2350830215412492654, guid: a5f0f739d46040b4fbf4c579841d698e, type: 3}
       propertyPath: dictationActivation
       value: 
       objectReference: {fileID: 2494780024465153808}
+    - target: {fileID: 2350830215412492654, guid: a5f0f739d46040b4fbf4c579841d698e, type: 3}
+      propertyPath: startInterviewButton
+      value: 
+      objectReference: {fileID: 801333127}
     - target: {fileID: 2778407492323754216, guid: a5f0f739d46040b4fbf4c579841d698e, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

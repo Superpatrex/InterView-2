@@ -24,7 +24,9 @@ namespace OpenAI
         [SerializeField] public string jobRoleInput = "Software Engineer";
         [SerializeField] public DictationActivation dictationActivation;
         [SerializeField] public Interviewer interviewer;
-        private  string jobRole;
+        [SerializeField] public DoorAnimation door;
+        [SerializeField] GameObject startInterviewButton;
+        private string jobRole;
         private String ModelName = "gpt-3.5-turbo-1106";
 
         //[SerializeField] Meta.Voice.Samples.Dictation.DictationActivation activation;
@@ -67,6 +69,8 @@ namespace OpenAI
         }
         public void StartInterview()
         {
+            door.LockDoor();
+            startInterviewButton.SetActive(false);
             m_MyEvent.Invoke();
             interviewStarted = true;
             interviewer.SetTalking(true);
@@ -198,6 +202,9 @@ namespace OpenAI
                 if (message.Content != null && message.Content.Contains("Have a") && message.Content.Contains("day"))
                 {
                     stop = true;
+                    startInterviewButton.SetActive(true);
+                    door.UnlockDoor();
+                    _userInputTranscriptionText = "";
                 }
             }
             else

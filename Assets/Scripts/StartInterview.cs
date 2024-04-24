@@ -6,7 +6,7 @@ using OpenAI;
 public class StartInterview : MonoBehaviour
 {
     private ChatGPT chatGPT;
-    [SerializeField] GameObject startInterviewButton;
+    
     private void Start()
     {
         chatGPT = transform.GetComponent<ChatGPT>();
@@ -15,6 +15,5 @@ public class StartInterview : MonoBehaviour
     public void BeginInterview()
     {
         chatGPT.StartInterview();
-        startInterviewButton.SetActive(false);
     }
 }
