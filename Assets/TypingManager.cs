@@ -1,8 +1,10 @@
+using OpenAI;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
-public class ToggleTyping : MonoBehaviour
+public class TypingManager : MonoBehaviour
 {
     public GameObject ComputerCamera;
     public GameObject InterviewElements;
@@ -11,6 +13,9 @@ public class ToggleTyping : MonoBehaviour
     public GameObject TypingConsole;
     public GameObject InterviewerHead;
     public GameObject InterviewerHands;
+    public GameObject SendToInterviewer;
+    public TMP_Text ConsoleText;
+    public ChatGPT InterviewerGPT;
 
     public bool toggleTyping = true;
     private bool typing = false;
@@ -28,6 +33,7 @@ public class ToggleTyping : MonoBehaviour
         {
             TypingConsole.SetActive(false);
             ComputerCamera.SetActive(false);
+            SendToInterviewer.SetActive(false);
             // Briefly disable objects to disable lazy follow
             InterviewerHead.SetActive(false);
             InterviewerHands.SetActive(false);
@@ -42,7 +48,7 @@ public class ToggleTyping : MonoBehaviour
         {
             TypingConsole.SetActive(true);
             ComputerCamera.SetActive(true);
-
+            SendToInterviewer.SetActive(true);
             // Briefly disable objects to disable lazy follow
             InterviewerHead.SetActive(false);
             InterviewerHands.SetActive(false);
@@ -54,5 +60,11 @@ public class ToggleTyping : MonoBehaviour
             InterviewerHands.SetActive(true);
         }
         typing = !typing;
+    }
+
+    public void SendInfo()
+    {
+        InterviewerGPT.ResponseAfterUserConsoleInput(ConsoleText.text);
+        ConsoleText.text = string.Empty;
     }
 }

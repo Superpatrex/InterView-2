@@ -140,6 +140,7 @@ namespace OpenAI
                         userInputTranscriptionText.text = "Speak to enter text...";
                         Interviewer.SetTalking(true);
                     }
+
                 }
             }
         }
@@ -149,7 +150,14 @@ namespace OpenAI
             m_MyEvent.Invoke();
             userInputTranscriptionText.text = "Enter text...";
         }
-        
+        public void ResponseAfterUserConsoleInput(string input)
+        {
+            if(interviewStarted)
+            {
+                _userInputTranscriptionText = input;
+                m_MyEvent.Invoke();
+            }
+        }
         private async void SendReply()
         {
             var newMessage = new ChatMessage()
