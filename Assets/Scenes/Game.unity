@@ -6337,6 +6337,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1934321086}
+        m_TargetAssemblyTypeName: TypingManager, Assembly-CSharp
+        m_MethodName: ToggleResumeInput
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!222 &246995570
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7580,7 +7592,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 328968415}
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: -0.20199999}
+  m_LocalPosition: {x: 0, y: 0, z: -0.543}
   m_LocalScale: {x: 0.012499999, y: 0.012499999, z: 0.012499999}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -9522,9 +9534,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2042629216}
-        m_TargetAssemblyTypeName: MongoDBAPI, Assembly-CSharp
-        m_MethodName: HideCodeResumeConsole
+      - m_Target: {fileID: 1934321086}
+        m_TargetAssemblyTypeName: TypingManager, Assembly-CSharp
+        m_MethodName: ToggleResumeInput
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -31781,7 +31793,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6254919540151357624, guid: 9612f5cad5fb748408893a47cbdcbe26, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 40
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6254919540151357624, guid: 9612f5cad5fb748408893a47cbdcbe26, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -31809,7 +31821,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6254919540300974736, guid: 9612f5cad5fb748408893a47cbdcbe26, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 40
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6254919540300974736, guid: 9612f5cad5fb748408893a47cbdcbe26, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -31845,7 +31857,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6254919540697728793, guid: 9612f5cad5fb748408893a47cbdcbe26, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 44.7
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6254919540697728793, guid: 9612f5cad5fb748408893a47cbdcbe26, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -31885,7 +31897,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6254919540955873006, guid: 9612f5cad5fb748408893a47cbdcbe26, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 40
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6254919540955873006, guid: 9612f5cad5fb748408893a47cbdcbe26, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -31921,7 +31933,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6254919541428991024, guid: 9612f5cad5fb748408893a47cbdcbe26, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 44.7
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6254919541428991024, guid: 9612f5cad5fb748408893a47cbdcbe26, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -31949,7 +31961,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6254919541981658233, guid: 9612f5cad5fb748408893a47cbdcbe26, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 40
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6254919541981658233, guid: 9612f5cad5fb748408893a47cbdcbe26, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -41057,9 +41069,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2042629216}
-        m_TargetAssemblyTypeName: MongoDBAPI, Assembly-CSharp
-        m_MethodName: ShowCodeResumeConsole
+      - m_Target: {fileID: 1934321086}
+        m_TargetAssemblyTypeName: TypingManager, Assembly-CSharp
+        m_MethodName: ToggleResumeInput
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -46245,6 +46257,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 477775045743233056, guid: a5f0f739d46040b4fbf4c579841d698e, type: 3}
   m_PrefabInstance: {fileID: 5122600306599328901}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1934321086 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5263646505661015143, guid: a5f0f739d46040b4fbf4c579841d698e, type: 3}
+  m_PrefabInstance: {fileID: 5122600306599328901}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efe9357fe8bf5ca48b82b2082fc1ad80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1934375549
 GameObject:
   m_ObjectHideFlags: 0
@@ -50747,6 +50770,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2071604690}
   m_CullTransparentMesh: 0
+--- !u!114 &2071652854 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5263646505661015143, guid: a5f0f739d46040b4fbf4c579841d698e, type: 3}
+  m_PrefabInstance: {fileID: 1495210983}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efe9357fe8bf5ca48b82b2082fc1ad80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2073036449
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -52668,9 +52702,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2042629216}
-        m_TargetAssemblyTypeName: MongoDBAPI, Assembly-CSharp
-        m_MethodName: ShowCodeResumeConsole
+      - m_Target: {fileID: 2071652854}
+        m_TargetAssemblyTypeName: TypingManager, Assembly-CSharp
+        m_MethodName: ToggleResumeInput
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -53379,6 +53413,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1522136116}
     m_Modifications:
+    - target: {fileID: 393374023488402753, guid: a5f0f739d46040b4fbf4c579841d698e, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 393374023488402753, guid: a5f0f739d46040b4fbf4c579841d698e, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 393374023488402753, guid: a5f0f739d46040b4fbf4c579841d698e, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 393374023488402753, guid: a5f0f739d46040b4fbf4c579841d698e, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 393374023488402753, guid: a5f0f739d46040b4fbf4c579841d698e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 471745836018692826, guid: a5f0f739d46040b4fbf4c579841d698e, type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
@@ -53519,6 +53573,26 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5263646505661015143, guid: a5f0f739d46040b4fbf4c579841d698e, type: 3}
+      propertyPath: LinkResume
+      value: 
+      objectReference: {fileID: 1923383858}
+    - target: {fileID: 5263646505661015143, guid: a5f0f739d46040b4fbf4c579841d698e, type: 3}
+      propertyPath: SendResume
+      value: 
+      objectReference: {fileID: 567711160}
+    - target: {fileID: 5263646505661015143, guid: a5f0f739d46040b4fbf4c579841d698e, type: 3}
+      propertyPath: ResumeConsole
+      value: 
+      objectReference: {fileID: 328968415}
+    - target: {fileID: 5263646505661015143, guid: a5f0f739d46040b4fbf4c579841d698e, type: 3}
+      propertyPath: ExitResumeType
+      value: 
+      objectReference: {fileID: 1964535151}
+    - target: {fileID: 5263646505661015143, guid: a5f0f739d46040b4fbf4c579841d698e, type: 3}
+      propertyPath: StartInterview
+      value: 
+      objectReference: {fileID: 801333127}
     - target: {fileID: 5312230730421400870, guid: a5f0f739d46040b4fbf4c579841d698e, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -53584,6 +53658,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6549704399678254906, guid: a5f0f739d46040b4fbf4c579841d698e, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6905441366507272964, guid: a5f0f739d46040b4fbf4c579841d698e, type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}

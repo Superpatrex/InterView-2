@@ -46,7 +46,6 @@ public class MongoDBAPI: MonoBehaviour
         {
             resumeGetSuccess = null;
             inputFieldFromKeyboardNow = null;
-            HideCodeResumeConsole();
         }
     }
 
